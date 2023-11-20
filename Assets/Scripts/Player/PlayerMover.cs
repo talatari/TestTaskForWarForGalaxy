@@ -1,14 +1,24 @@
 using UnityEngine;
 
+[RequireComponent(
+   typeof(PlayerAnimation),
+   typeof(Rigidbody))]
+
 public class PlayerMover : MonoBehaviour
 {
    [SerializeField, Range(1, 10)] private float _moveSpeed = 2f;
 
-   private GameObject _selectedGameObject;
    private Camera _camera;
    private Vector3 _targetMove;
+   private PlayerAnimation _playerAnimation;
+   private Rigidbody _rigidbody;
 
-   private void Awake() => _camera = Camera.main;
+   private void Awake()
+   {
+      _camera = Camera.main;
+      _playerAnimation = GetComponent<PlayerAnimation>();
+      _rigidbody = GetComponent<Rigidbody>();
+   }
 
    private void Update()
    {
@@ -32,8 +42,13 @@ public class PlayerMover : MonoBehaviour
    {
       if (_targetMove != Vector3.zero)
       {
-         transform.position = Vector3.MoveTowards(transform.position, _targetMove, _moveSpeed * Time.deltaTime);
-         transform.rotation = Quaternion.LookRotation(_targetMove);
+         _rigidbody.transform.position = Vector3.MoveTowards(transform.position, _targetMove, _moveSpeed * Time.deltaTime);
+         _rigidbody.transform.rotation = Quaternion.LookRotation(_targetMove);
+         
+         print(_rigidbody.velocity);
+         
+         if (_rigidbody.velocity.magnitude > 0)
+            _playerAnimation.TransferSpeed(_rigidbody.velocity.magnitude);
       }
    }
 }
