@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(
@@ -8,14 +7,11 @@ public class PlayerAnimation : MonoBehaviour
 {
     private Animator _animator;
     
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-    }
-    
+    private void Awake() => _animator = GetComponent<Animator>();
+
     public void TransferSpeed(float playerSpeed)
     {
-        if (Math.Abs(playerSpeed) > 0)
-            _animator.SetFloat("PlayerSpeed", playerSpeed);
+        _animator.SetFloat("PlayerSpeed", playerSpeed);
+        print(playerSpeed);
     }
 }
