@@ -5,7 +5,7 @@ public class UIJoystickMover : UIJoystickHandler
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
 
-    [SerializeField] private PlayerMover3 _playerMover;
+    [SerializeField] private PlayerMover2 _playerMover;
 
     public void Update()
     {
