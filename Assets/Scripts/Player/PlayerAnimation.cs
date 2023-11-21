@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(
-    typeof(Animator))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -9,9 +8,5 @@ public class PlayerAnimation : MonoBehaviour
     
     private void Awake() => _animator = GetComponent<Animator>();
 
-    public void TransferSpeed(float playerSpeed)
-    {
-        _animator.SetFloat("PlayerSpeed", playerSpeed);
-        print(playerSpeed);
-    }
+    public void TransferSpeed(float playerSpeed) => _animator.SetFloat("PlayerSpeed", playerSpeed);
 }

@@ -12,12 +12,14 @@ public class PlayerMover : MonoBehaviour
    private Transform _transform;
    private PlayerAnimation _playerAnimation;
    private Vector3 _targetMove;
+   private Vector3 _oldPosition;
 
    private void Awake()
    {
       _camera = Camera.main;
       _transform = transform;
       _playerAnimation = GetComponent<PlayerAnimation>();
+      _oldPosition = _transform.position;
    }
 
    private void Update()
@@ -34,23 +36,36 @@ public class PlayerMover : MonoBehaviour
          Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
          if (Physics.Raycast(ray, out RaycastHit raycastHit))
+         {
             _targetMove = raycastHit.point;
+            
+            RotateToTarget();
+         }
       }
    }
-   
+
+   private void RotateToTarget()
+   {
+      Vector3 relativePosition = _targetMove - _transform.position;
+      _transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
+   }
+
    private void MoveToTarget()
    {
       if (_targetMove != _transform.position)
-      {
-         _transform.position = Vector3.MoveTowards(transform.position, _targetMove, _moveSpeed * Time.deltaTime);
-         _transform.rotation = Quaternion.LookRotation(_targetMove);
-         
-         _playerAnimation.TransferSpeed(_transform.position.magnitude);
-      }
-      else
-      {
-         _playerAnimation.TransferSpeed(0);
-      }
+         _transform.position = Vector3.MoveTowards(_transform.position, _targetMove, _moveSpeed * Time.deltaTime);
       
+      _playerAnimation.TransferSpeed(Magnitude());
+   }
+
+   private float Magnitude()
+   {
+      int normalizedValue = 100;
+      Vector3 currentPosition = _transform.position;
+      Vector3 diff = _oldPosition - currentPosition;
+   
+      _oldPosition = _transform.position;
+      
+      return (diff.x * diff.x + diff.y * diff.y + diff.z * diff.z) * normalizedValue;
    }
 }
