@@ -1,8 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(
-   typeof(PlayerAnimation),
-   typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerAnimation))]
 
 public class PlayerMover : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class PlayerMover : MonoBehaviour
    private Vector3 _targetMove;
    private Vector3 _oldPosition;
 
-   private void Awake()
+   private void Start()
    {
       _camera = Camera.main;
       _transform = transform;
@@ -53,9 +51,14 @@ public class PlayerMover : MonoBehaviour
    private void MoveToTarget()
    {
       if (_targetMove != _transform.position)
+      {
          _transform.position = Vector3.MoveTowards(_transform.position, _targetMove, _moveSpeed * Time.deltaTime);
-      
-      _playerAnimation.TransferSpeed(Magnitude());
+         _playerAnimation.TransferIsRun(true);
+      }
+      else
+      {
+         _playerAnimation.TransferIsRun(false);
+      }
    }
 
    private float Magnitude()
@@ -66,6 +69,6 @@ public class PlayerMover : MonoBehaviour
    
       _oldPosition = _transform.position;
       
-      return (diff.x * diff.x + diff.y * diff.y + diff.z * diff.z) * normalizedValue;
+      return diff.sqrMagnitude * normalizedValue;
    }
 }

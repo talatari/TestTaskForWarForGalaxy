@@ -33,9 +33,9 @@ RectTransform:
   - {fileID: 592741578992566507}
   m_Father: {fileID: 5044035934774094155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -250, y: 250}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 300, y: -700}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3030251987433381857
@@ -196,7 +196,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7504623478357197304}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &5763018175527823603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,10 +236,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3703294263478073599}
+  - component: {fileID: 2267470560579801367}
   - component: {fileID: 7960834023736609350}
   - component: {fileID: 5921148249105851276}
   - component: {fileID: 4081356262914074253}
-  - component: {fileID: 2267470560579801367}
   m_Layer: 5
   m_Name: JoystickCanvas
   m_TagString: Untagged
@@ -267,6 +267,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2267470560579801367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029944449043215785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf3e760db3794cab9c11eb10de755c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _joystickArea: {fileID: 2939685684120891758}
+  _joystickBackground: {fileID: 1173210892240658471}
+  _joystick: {fileID: 5763018175527823603}
+  _inActiveJoystickColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeJoystickColor: {r: 0, g: 0, b: 0, a: 1}
+  _playerMover: {fileID: 0}
 --- !u!223 &7960834023736609350
 Canvas:
   m_ObjectHideFlags: 0
@@ -330,20 +348,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2267470560579801367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029944449043215785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf3e760db3794cab9c11eb10de755c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _joystickArea: {fileID: 2939685684120891758}
-  _joystickBackground: {fileID: 1173210892240658471}
-  _joystick: {fileID: 5763018175527823603}
-  _inActiveJoystickColor: {r: 1, g: 0.3488756, b: 0, a: 0.5019608}
-  _activeJoystickColor: {r: 0, g: 0, b: 0, a: 1}
