@@ -1,74 +1,50 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerAnimation))]
+[RequireComponent(typeof(CharacterController))]
 
 public class PlayerMover : MonoBehaviour
 {
-   [SerializeField, Range(0, 10)] private float _moveSpeed = 0.2f;
+    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private float _rotateSpeed = 10f;
+    [SerializeField] private float _gravityForce = 20f;
 
-   private Camera _camera;
-   private Transform _transform;
-   private PlayerAnimation _playerAnimation;
-   private Vector3 _targetMove;
-   private Vector3 _oldPosition;
+    private float _currentAttractionCharacter;
+    private CharacterController _characterController;
+    private PlayerAnimation _playerAnimation;
 
-   private void Start()
-   {
-      _camera = Camera.main;
-      _transform = transform;
-      _playerAnimation = GetComponent<PlayerAnimation>();
-      _oldPosition = _transform.position;
-   }
+    private void Start()
+    {
+        _characterController = GetComponent<CharacterController>();
+        _playerAnimation = GetComponent<PlayerAnimation>();
+    }
 
-   private void Update()
-   {
-      SetMoveTarget();
-      
-      MoveToTarget();
-   }
+    private void Update() => GravityHandling();
 
-   private void SetMoveTarget()
-   {
-      if (Input.GetMouseButtonDown(0))
-      {
-         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+    public void MoveToDestination(Vector3 targetDirection)
+    {
+        _playerAnimation.TransferIsRun(targetDirection != Vector3.zero);
+        targetDirection *= _moveSpeed;
+        targetDirection.y = _currentAttractionCharacter;
+        _characterController.Move(targetDirection * Time.deltaTime);
+    }
 
-         if (Physics.Raycast(ray, out RaycastHit raycastHit))
-         {
-            _targetMove = raycastHit.point;
-            
-            RotateToTarget();
-         }
-      }
-   }
-
-   private void RotateToTarget()
-   {
-      Vector3 relativePosition = _targetMove - _transform.position;
-      _transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
-   }
-
-   private void MoveToTarget()
-   {
-      if (_targetMove != _transform.position)
-      {
-         _transform.position = Vector3.MoveTowards(_transform.position, _targetMove, _moveSpeed * Time.deltaTime);
-         _playerAnimation.TransferIsRun(true);
-      }
-      else
-      {
-         _playerAnimation.TransferIsRun(false);
-      }
-   }
-
-   private float Magnitude()
-   {
-      int normalizedValue = 100;
-      Vector3 currentPosition = _transform.position;
-      Vector3 diff = _oldPosition - currentPosition;
-   
-      _oldPosition = _transform.position;
-      
-      return diff.sqrMagnitude * normalizedValue;
-   }
+    public void RotateToDestination(Vector3 targetDirection)
+    {
+        if (_characterController.isGrounded)
+        {
+            if (Vector3.Angle(transform.forward, targetDirection) > 0)
+            {
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, _rotateSpeed, 0);
+                transform.rotation = Quaternion.LookRotation(newDirection);
+            }
+        }
+    }
+    
+    private void GravityHandling()
+    {
+        if (_characterController.isGrounded)
+            _currentAttractionCharacter = 0;
+        else
+            _currentAttractionCharacter -= _gravityForce * Time.deltaTime;
+    }
 }
