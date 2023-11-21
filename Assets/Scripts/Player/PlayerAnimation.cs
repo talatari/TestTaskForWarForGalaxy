@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    private const string IsRun = "IsRun";
+    
     private Animator _animator;
     
-    private void Awake() => _animator = GetComponent<Animator>();
+    private void Start() => _animator = GetComponent<Animator>();
 
-    public void TransferSpeed(float playerSpeed) => _animator.SetFloat("PlayerSpeed", playerSpeed);
+    public void TransferIsRun(bool isRun) => _animator.SetBool(IsRun, isRun);
 }
