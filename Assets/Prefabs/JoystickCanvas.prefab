@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -700}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3030251987433381857
@@ -109,10 +109,10 @@ RectTransform:
   - {fileID: 677350723487950439}
   m_Father: {fileID: 3703294263478073599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -240, y: 260}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4235691588767085825
 CanvasRenderer:
@@ -279,11 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf3e760db3794cab9c11eb10de755c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystickArea: {fileID: 2939685684120891758}
   _joystickBackground: {fileID: 1173210892240658471}
   _joystick: {fileID: 5763018175527823603}
   _inActiveJoystickColor: {r: 0, g: 0, b: 0, a: 1}
-  _activeJoystickColor: {r: 0, g: 0, b: 0, a: 1}
+  _activeJoystickColor: {r: 1, g: 0.02284746, b: 0.0039215684, a: 1}
   _playerMover: {fileID: 0}
 --- !u!223 &7960834023736609350
 Canvas:
