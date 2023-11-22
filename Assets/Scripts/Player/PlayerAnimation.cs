@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    private const string IsRun = "IsRun";
+    private static readonly int Run = Animator.StringToHash("IsRun");
     
     private Animator _animator;
-    
+
     private void Start() => _animator = GetComponent<Animator>();
 
-    public void TransferIsRun(bool isRun) => _animator.SetBool(IsRun, isRun);
+    public void OnAnimationRun(bool isRun) => _animator.SetBool(Run, isRun);
 }

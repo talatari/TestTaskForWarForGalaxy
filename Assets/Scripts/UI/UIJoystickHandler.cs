@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public abstract class UIJoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private Image _joystickArea;
+    // [SerializeField] private Image _joystickArea;
     [SerializeField] private Image _joystickBackground;
     [SerializeField] private Image _joystick;
     [SerializeField] private Color _inActiveJoystickColor;
@@ -14,19 +14,15 @@ public abstract class UIJoystickHandler : MonoBehaviour, IDragHandler, IPointerD
     protected Vector2 _inputVector;
     private bool _isJoystickActive;
 
-    private void Start()
-    {
-        ClickEffect();
-
+    private void Start() => 
         _joystickBackgroundStartPosition = _joystickBackground.rectTransform.anchoredPosition;
-    }
 
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 joystickPosition;
         int ratio = 2;
         float maxBorderInput = 1f;
-
+        
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _joystickBackground.rectTransform, eventData.position, null, out joystickPosition))
         {
@@ -47,14 +43,14 @@ public abstract class UIJoystickHandler : MonoBehaviour, IDragHandler, IPointerD
     {
         ClickEffect();
         
-        Vector2 joystickBackgroundPosition;
-
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                _joystickArea.rectTransform, eventData.position, null, out joystickBackgroundPosition))
-        {
-            _joystickBackground.rectTransform.anchoredPosition = new Vector2(
-                joystickBackgroundPosition.x, joystickBackgroundPosition.y);
-        }
+        // Vector2 joystickBackgroundPosition;
+        //
+        // if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        //         _joystickArea.rectTransform, eventData.position, null, out joystickBackgroundPosition))
+        // {
+        //     _joystickBackground.rectTransform.anchoredPosition = new Vector2(
+        //         joystickBackgroundPosition.x, joystickBackgroundPosition.y);
+        // }
     }
 
     public void OnPointerUp(PointerEventData eventData)

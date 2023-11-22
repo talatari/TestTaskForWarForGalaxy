@@ -53,11 +53,11 @@ public class PlayerMoverTransformPosition : MonoBehaviour
       if (_targetMove != _transform.position)
       {
          _transform.position = Vector3.MoveTowards(_transform.position, _targetMove, _moveSpeed * Time.deltaTime);
-         _playerAnimation.TransferIsRun(true);
+         _playerAnimation.OnAnimationRun(true);
       }
       else
       {
-         _playerAnimation.TransferIsRun(false);
+         _playerAnimation.OnAnimationRun(false);
       }
    }
 
