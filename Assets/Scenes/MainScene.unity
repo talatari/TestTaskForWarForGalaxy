@@ -589,6 +589,70 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 99121185}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.ctime2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.ctime3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key0.b
+      value: 0.012617359
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key0.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key0.r
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key1.g
+      value: 0.4509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key2.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key2.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key2.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key3.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.key3.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095726597828052398, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
+      propertyPath: _gradient.m_NumColorKeys
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8337884205058714384, guid: 9ebdde02cf8c2434c9ad5c06960c995b, type: 3}
       propertyPath: _playerJumpHandler
       value: 
