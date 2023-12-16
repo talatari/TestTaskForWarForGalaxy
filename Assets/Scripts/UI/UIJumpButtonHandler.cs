@@ -5,5 +5,6 @@ public class UIJumpButtonHandler : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private PlayerJumpHandler _playerJumpHandler;
 
-    public void OnPointerDown(PointerEventData eventData) => _playerJumpHandler.HandleJump();
+    public void OnPointerDown(PointerEventData eventData) => 
+        _playerJumpHandler.HandleJump();
 }
