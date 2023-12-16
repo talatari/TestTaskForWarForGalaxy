@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 10f;
@@ -21,7 +20,8 @@ public class PlayerMover : MonoBehaviour
         _playerAnimation = GetComponent<PlayerAnimation>();
     }
 
-    private void Update() => GravityHandling();
+    private void Update() => 
+        GravityHandling();
 
     public void MoveToDestination(Vector3 moveDirection)
     {
